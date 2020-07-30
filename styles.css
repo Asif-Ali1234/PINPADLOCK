@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: aliceblue !important;
+    flex-direction: column;
+}
+
+h2{
+    color: cadetblue;
+    margin: 50px;
+    padding: 30px;
+    font-family: 'Cinzel',serif;
+    letter-spacing: 1px;
+}
+
+.container{
+    position: relative;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .numpad{
+    width: 300px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid #999999;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 16px 32px rgba(0,0,0,0.2);
+}
+
+.container .row{
+    width: 300px;
+    height:60px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+.container .row .col-4{
+    padding: 0px;
+    margin: 0;
+}
+
+.container .row .col-4 button{
+    position: relative;
+    top: 9px;
+    width: 45px;
+    border-radius: 100%;
+}
+
+#lock.error{
+    color: black;
+    border: 1px solid dimgray;
+    background-color: #ffffff;
+    animation: erroranimation 0.3s forwards ease-in-out;
+}
+
+@keyframes erroranimation{
+    0%{
+        background-color: #ff8080;
+        color: white;
+        transform: rotateZ(0deg);
+    }
+    10%,40%{
+        background-color: #ff8080;
+        color: black;
+        transform: rotateZ(5deg);
+    }
+    50%{
+        background-color: #ff8080;
+        color: black;
+        transform: rotateZ(0deg);
+    }
+    60%,80%{
+        background-color: #ffb3b3;
+        color: black;
+        transform: rotateZ(-5deg);
+    }
+    90%,100%{
+        background-color: #ffffff;
+        border: 1px solid dimgray;
+        transform: rotateZ(0deg);
+        color: black;
+    }
+}
+
+.container .row input{
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    font-size: 1.5em;
+    outline: none;
+    border: 1px solid dimgray;
+    border-radius: 7px;
+}
+
+.container .row input::-webkit-outer-spin-button,
+.container .row input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]{
+    -moz-appearance: textfield;
+}
