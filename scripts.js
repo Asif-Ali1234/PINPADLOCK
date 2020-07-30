@@ -20,9 +20,8 @@ function remove() {
     }
 }
 
-document.getElementById('bform').onsubmit=checkpassword;
 
-function checkpassword(e){
+function checkpassword(){
     password=document.getElementById('lock')
     msg=document.getElementById('msg')
     password.classList.remove('error')
@@ -36,5 +35,4 @@ function checkpassword(e){
        password.classList.add('error')
        password.value=""
     }
-    e.preventDefault();
 }
