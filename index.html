@@ -1,46 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
-    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <title>Phone lock screen</title>
     <script src="scripts.js"></script>
 </head>
+
 <body>
     <h2 id="msg">Pin Pad Login Screen</h2>
     <div class="container" id="maincontainer">
         <div class="numpad">
-            <form id="bform">
             <div class="row">
                 <input type="password" max=9999 id="lock">
             </div>
             <div class="row">
                 <div class="col-4">
-                    <button type="button" id="b1" class="btn btn-outline-secondary" onclick="display(1)" >1</button>
+                    <button type="button" id="b1" class="btn btn-outline-secondary" onclick="display(1)">1</button>
                 </div>
                 <div class="col-4">
-                    <button type="button" id="b2" class="btn btn-outline-secondary" onclick="display(2)" >2</button>
+                    <button type="button" id="b2" class="btn btn-outline-secondary" onclick="display(2)">2</button>
                 </div>
                 <div class="col-4">
-                    <button type="button" id="b3" class="btn btn-outline-secondary" onclick="display(3)" >3</button>
+                    <button type="button" id="b3" class="btn btn-outline-secondary" onclick="display(3)">3</button>
                 </div>
             </div>
             <div class="row">
                 <div class="col-4">
-                    <button type="button" id="b4" class="btn btn-outline-secondary" onclick="display(4)" >4</button>
+                    <button type="button" id="b4" class="btn btn-outline-secondary" onclick="display(4)">4</button>
                 </div>
                 <div class="col-4">
-                    <button type="button" id="b5" class="btn btn-outline-secondary" onclick="display(5)" >5</button>
+                    <button type="button" id="b5" class="btn btn-outline-secondary" onclick="display(5)">5</button>
                 </div>
                 <div class="col-4">
-                    <button type="button" id="b6" class="btn btn-outline-secondary" onclick="display(6)" >6</button>
+                    <button type="button" id="b6" class="btn btn-outline-secondary" onclick="display(6)">6</button>
                 </div>
             </div>
             <div class="row">
@@ -56,17 +57,65 @@
             </div>
             <div class="row">
                 <div class="col-4">
-                    <button type="button" id="back" class="btn btn-outline-secondary" onclick="remove()"><i class="fas fa-backspace"></i></button>
+                    <button type="button" id="back" class="btn btn-outline-secondary" onclick="remove()"><i
+                            class="fas fa-backspace"></i></button>
                 </div>
                 <div class="col-4">
                     <button type="button" id="b10" class="btn btn-outline-secondary" onclick="display(0)">0</button>
                 </div>
                 <div class="col-4">
-                    <button type="button" id="submit" class="btn btn-outline-secondary" onclick="checkpassword()" ><i class="fas fa-check"></i></button>
+                    <button type="button" id="submitbtn" class="btn btn-outline-secondary"><i
+                            class="fas fa-check"></i></button>
                 </div>
             </div>
-            </form>
         </div>
     </div>
+    <script>
+        var chin = ""
+        function display(a) {
+            password = document.getElementById('lock').value
+            if (password == "") {
+                document.getElementById('lock').value = a;
+            }
+            else if (password.length < 4) {
+                chin = document.getElementById('lock').value += a;
+            }
+        }
+
+        function remove() {
+            chin = document.getElementById('lock').value
+            if (chin.length == 1) {
+                document.getElementById('lock').value = ""
+            }
+            else {
+                chin = chin.slice(0, -1);
+                document.getElementById('lock').value = chin;
+            }
+        }
+
+        "use strict";
+
+        var subtn = document.getElementById("submitbtn");
+
+        subtn.addEventListener("click", function (e) {
+            e.preventDefault;
+            var password=document.getElementById('lock')
+            password.classList.remove("error");
+
+            if(password.value=="1802"){
+                msg.style.color="green"
+                document.getElementById('maincontainer').style.display="none"
+                msg.innerHTML="PIN is correct !!!! Your phone has been unlocked"
+            }
+            else{
+                void password.offsetWidth;
+
+                password.classList.add("error");
+               password.value=""
+            }
+        }, false);
+
+    </script>
 </body>
+
 </html>

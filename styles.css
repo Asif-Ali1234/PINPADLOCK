@@ -62,7 +62,7 @@ h2{
     color: black;
     border: 1px solid dimgray;
     background-color: #ffffff;
-    animation: erroranimation 0.3s forwards ease-in-out;
+    animation: erroranimation 0.3s ease-in-out;
 }
 
 @keyframes erroranimation{
